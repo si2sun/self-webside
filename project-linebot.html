@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 標題可以為每個專案修改 -->
+    <title>專案詳情 - [請填寫專案名稱]</title>
+    
+    <!-- 所有頁面都使用同一個 CSS 檔案 -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+       .project-detail-section {
+            padding-top: 120px; /* 確保內容從導覽列下方開始 */
+            padding-bottom: 6rem;
+        }
+        .project-image {
+            width: 100%;
+            max-width: 200px;
+            margin: 2rem left;
+            display: block;
+            border-radius: 8px;
+        }
+        .image-large {
+        max-width: 600px; /* 讓這張圖的最大寬度變成 900px */
+        }
+    /* .project-detail-section p {
+    font-size: 1.2rem; /* rem 是相對單位，比 px 更好 */
+    /* } */
+    /* .project-detail-section li {
+    font-size: 1.2rem; */
+    /* } */ */
+    </style>
+</head>
+<body>
+     <nav class="navbar">
+        <div class="container">
+            <!-- 點擊 Logo 回到主頁最上方 -->
+            <a href="personal.html#home" class="nav-logo">LI TSUNG YEN</a>
+            <ul class="nav-menu">
+                <!-- 點擊連結會先回到 index.html，然後再跳轉到對應區塊 -->
+                <li><a href="personal.html#about">關於我</a></li>
+                <li><a href="personal.html#experience">學歷簡介</a></li>
+                <li><a href="personal.html#skills">專業技能</a></li>
+                <li><a href="personal.html#projects">專案實作</a></li>                
+                <li><a href="personal.html#contact">聯絡我</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="project-detail-section">
+        <div class="container">
+        <h1>專案名稱：Linebot與Gemini API應用</h1>
+        <h2>專案簡介</h2>
+        <p style="text-align: left;">
+            此專案是一個建立在 LINE 平台上的智慧聊天機器人。它透過 Python Flask 框架作為後端，成功串接了 Google 的 Gemini 生成式 AI 模型，使其具備了流暢的對話能力。
+            並整合了 Google Cloud Firestore 資料庫，儲存每一輪的對話紀錄，使AI回復具有「長期記憶」。
+        </p>
+
+        <!-- 您可以將 '#' 替換成您的專案截圖   -->
+        
+
+        <h2>功能特色</h2>
+        <ul>
+            <li><b>智慧雙模式：</b>透過關鍵字在「回音模式」與「Gemini AI 智慧對話」模式間無縫切換。</li>
+            <li><b>Gemini AI 整合：</b>串接 Google Gemini API，提供高品質的生成式 AI 對話能力。</li>
+            <li><b>雲端對話記憶：</b>運用 Firestore 保存歷史紀錄，賦予 AI 理解上下文的記憶能力。</li>
+            <li><b>容器化部署：</b>以 Docker 將 Flask 應用程式容器化，並部署於 Render 雲端平台。</li>
+            <li><b>個人化互動：</b>透過 LINE Push API 主動推播訊息，以使用者暱稱進行問候。</li>
+            </ul>
+        
+        <h2>詳細說明</h2>
+        <ul>
+            <li>
+            <p style="text-align: left;">1. 初始模式:自動重復使用者在聊天室中所輸入的訊息</p>
+            <p style="text-align: left;">2. 使用者在聊天室輸入"gemini"時，進入gemini-mode，連結到gemini api</p>
+            <p style="text-align: left;">3. 這時使用者所輸入訊息時，通過API傳送gemini生成式AI</p>
+            <p style="text-align: left;">4. 經過一段時間，gemini所生成的答覆回傳到後端</p>
+            <p style="text-align: left;">5. 如此一輪問答的內容會打包成json(role,訊息)，並與該訊息發送的時間一起儲存於firestore</p>
+            <p style="text-align: left;">6. 後端再回傳gemini的答覆</p>
+            <p style="text-align: left;">7. 下一輪問答時，會連同歷史紀錄的json(時間、role、訊息)一起傳送到gemini生成式AI，使AI的回覆具有記憶力</p>
+            <p style="text-align: left;">8. 輸入"結束gemini"，跳出gemini-mode，回到初始模式</p>
+        </li>
+        <h3>雲端部署</h3>
+            <p>將Flask後端程式打包成dockerfile的專案，部署於render</p>
+            <p>將line-bot帳號的webhook修改成部署於render的URL</p>
+        </li>
+        <img src="linebot1.jpg" alt="專案截圖2" class="project-image image-large">
+        <img src="linebot2.png" alt="專案截圖2" class="project-image image-large">
+        </ul>
+        
+
+        <h2>使用的技術</h2>
+        <p>
+           <b>後端框架：</b>Python(Flask)<br>
+            <b>生成式 AI：</b>Google Gemini API (`google-generativeai`)<br>
+            <b>資料庫：</b>Google Cloud Firestore<br>
+            <b>LINE Bot 開發：</b>LINE Messaging API v3 (`line-bot-sdk`)<br>
+            <b>部署：</b>Docker, Render (雲端應用託管平台)<br>
+        </p>
+        
+        <a href="./personal.html" class="btn">返回首頁</a> 
+
+    </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Li Tsung Yen. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>  

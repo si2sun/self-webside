@@ -1,0 +1,224 @@
+:root {
+    --primary-color: #007bff;
+    --deep-blue-color: #003366;
+    --background-color: #f8f9fa;
+    --background-color-translucent: rgba(248, 249, 250, 0.85); 
+    --surface-color: #ffffff;
+    --text-color: #212529;
+    --text-secondary-color: #6c757d;
+    --border-color: #dee2e6;
+    --hero-overlay-color: rgba(0, 0, 0, 0.5);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 2rem; 
+}
+
+h1, h2, h3, h4, h5, h6 { 
+    color: var(--text-color); 
+    margin-bottom: 1rem; 
+    font-weight: 700; 
+}
+h1 { font-size: 3.5rem; line-height: 1.2; }
+h2 { font-size: 2.5rem; text-align: center; margin-bottom: 4rem; position: relative; }
+h2::after { content: ''; display: block; width: 70px; height: 4px; background: var(--primary-color); margin: 1rem auto 0; }
+p { margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--text-secondary-color); }
+li { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary-color); }
+
+a { color: var(--primary-color); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: #0056b3; }
+
+/* --- 【已補回】通用按鈕樣式 --- */
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 50px; /* 圓角按鈕 */
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--primary-color);
+    margin-top: 2rem; /* 給按鈕一點上方空間 */
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    color: #fff; /* 確保 hover 時文字顏色不變 */
+}
+
+/* --- 導覽列 --- */
+.navbar {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
+}
+.navbar.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.navbar .container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+.nav-logo { 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    color: var(--text-color); 
+    text-decoration: none;
+}
+.nav-menu { 
+    list-style: none; 
+    display: flex; 
+}
+.nav-menu li a { 
+    color: var(--text-color); 
+    padding: 0.5rem 1rem; 
+    font-size: 1rem; 
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.nav-menu li a:hover { 
+    color: var(--primary-color); 
+}
+
+/* --- Hero 區塊 (視差滾動) --- */
+.hero {
+    position: relative;
+    min-height: 110vh;
+    display: flex;
+    align-items: center;
+    
+    /* 【修改】從 justify-content: flex-end 改為 flex-start，讓內容容器靠左 */
+    justify-content: flex-start;
+    
+    /* 【修改】從 text-align: right 改為 left，讓文字靠左對齊 */
+    text-align: left;
+    
+    color: #fff;
+    background-image: url('69009.jpg');
+    background-size: cover;
+    /* 【修改】將背景照片稍微向右移動，為左邊的文字留出更多空間 */
+    background-position: 80% 10%; 
+    background-attachment: fixed;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--hero-overlay-color);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    
+    /* 【修改】從 padding-right 改為 padding-left */
+    padding-left: 5%;
+    
+    max-width: 600px;
+}
+.hero h1 { color: #fff; }
+.hero .subtitle { color: rgba(255, 255, 255, 0.8); }
+
+/* --- 內容區塊 --- */
+.content-section {
+    padding: 6rem 0;
+    position: relative;
+    background-color: var(--background-color);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.content-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#about {
+    background-color: var(--background-color-translucent);
+}
+
+.content-section.bg-white {
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* --- 專案詳情頁面 --- */
+.project-detail-section {
+    padding-top: 120px;
+    padding-bottom: 6rem;
+    background-color: var(--surface-color); /* 確保專案頁有白色背景 */
+}
+.project-detail-section h2 { color: var(--deep-blue-color); }
+.project-detail-section p, .project-detail-section li { color: var(--text-color); }
+
+
+/* --- 其他所有樣式 --- */
+.timeline { position: relative; max-width: 900px; margin: 0 auto; }
+.timeline::after { content: ''; position: absolute; width: 3px; background-color: var(--primary-color); top: 0; bottom: 0; left: 50%; margin-left: -1.5px; }
+.timeline-item { padding: 10px 40px; position: relative; width: 50%; }
+.timeline-item:nth-child(odd) { left: 0; text-align: right; }
+.timeline-item:nth-child(even) { left: 50%; }
+.timeline-dot { content: ''; position: absolute; width: 15px; height: 15px; background-color: var(--background-color); border: 3px solid var(--primary-color); top: 25px; border-radius: 50%; z-index: 1; }
+.timeline-item:nth-child(odd) .timeline-dot { right: -8.5px; }
+.timeline-item:nth-child(even) .timeline-dot { left: -6.5px; }
+.timeline-content { padding: 20px 30px; background: var(--surface-color); position: relative; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
+
+.projects-grid-irregular { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 250px; gap: 1.5rem; }
+.project-item { position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.project-item:hover { transform: scale(1.03); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+.project-item-anime { grid-column: span 2; grid-row: span 2; }
+.project-item-baseball { grid-column: span 2; }
+.project-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.project-item:hover img { transform: scale(1.1); }
+.project-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; }
+.project-overlay h3 { color: #fff; transform: translateY(20px); transition: transform 0.4s ease; font-size: 1.5rem; }
+.project-item:hover .project-overlay h3 { transform: translateY(0); }
+
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+.skill-category { background: var(--surface-color); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); }
+
+#contact { text-align: center; }
+
+footer { text-align: center; padding: 2.5rem 0; background: #e9ecef; border-top: 1px solid var(--border-color); color: var(--text-secondary-color); }
+
+/* --- RWD 響應式設計 --- */
+@media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .hero { background-attachment: scroll; }
+    .timeline::after { left: 20px; }
+    .timeline-item { width: 100%; padding-left: 50px; padding-right: 15px; }
+    .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { left: 0; text-align: left; }
+    .timeline-dot { left: 11.5px; }
+    .projects-grid-irregular { grid-template-columns: 1fr; }
+    .project-item-anime, .project-item-baseball { grid-column: span 1; }
+}

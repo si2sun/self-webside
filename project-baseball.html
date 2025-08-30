@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 標題可以為每個專案修改 -->
+    <title>專案詳情 - [請填寫專案名稱]</title>
+    
+    <!-- 所有頁面都使用同一個 CSS 檔案 -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+       .project-detail-section {
+            padding-top: 120px; /* 確保內容從導覽列下方開始 */
+            padding-bottom: 6rem;
+        }
+        .project-image {
+            width: 100%;
+            max-width: 200px;
+            margin: 2rem left;
+            display: block;
+            border-radius: 8px;
+        }
+        .image-large {
+        max-width: 800px; /* 讓這張圖的最大寬度變成 900px */
+        }
+    /* .project-detail-section p {
+    font-size: 1.2rem; /* rem 是相對單位，比 px 更好 */
+    /* } */
+    /* .project-detail-section li {
+    font-size: 1.2rem; */
+    /* } */ */
+    </style>
+</head>
+<body>
+     <nav class="navbar">
+        <div class="container">
+            <!-- 點擊 Logo 回到主頁最上方 -->
+            <a href="personal.html#home" class="nav-logo">LI TSUNG YEN</a>
+            <ul class="nav-menu">
+                <!-- 點擊連結會先回到 index.html，然後再跳轉到對應區塊 -->
+                <li><a href="personal.html#about">關於我</a></li>
+                <li><a href="personal.html#experience">學歷簡介</a></li>
+                <li><a href="personal.html#skills">專業技能</a></li>
+                <li><a href="personal.html#projects">專案實作</a></li>                
+                <li><a href="personal.html#contact">聯絡我</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="project-detail-section">
+        <div class="container">
+        <h1>專案名稱：棒球投手分析儀表板</h1>
+            
+            <p style="text-align: left;">
+                <a href="https://baseball-0623-frontend.onrender.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="baseball2.png" alt="專案截圖" class="project-image"></a>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;^可點選
+            </p>
+        <h2>專案簡介</h2>
+        <p style="text-align: left;">
+            該專案是基於 FastAPI 的後端系統建立一個棒球網站，用於接收用戶上傳的投手影片，並協調多個雲端微服務（如骨架點偵測、棒球軌跡分析、運動學特徵提取、分類與評分）來處理影片，最終將分析結果回傳給前端網站呈現。
+        <img src="baseball1.png" alt="專案截圖2" class="project-image image-large">
+        </p>
+
+
+        <!-- 您可以將 '#' 替換成您的專案截圖   -->
+        
+
+        <h2>功能特色</h2>
+        <ul>
+            <li>資料視覺化：將後端的資料轉換成各種視覺化的圖表。</li>
+            <li>歷史紀錄的保存與查詢：將後端資料儲存於全域變數中，可在前端網站中調閱。</li>
+            <li>關鍵幀針對觀察：將投球影片進行分析後，回傳影像中的出手幀、踏步幀、最大肩外旋幀的三個影像畫面。</li>
+            <li>圖表互動即時化：使用者可以選擇不同的分析項目，即時呈現比較數據的圖表。</li>     
+                   
+        </ul>
+        
+        <h2>詳細說明</h2>
+        <ul>
+            <p style="text-align: left;">
+            在這次的團體專案中，我主要負責前端網站的開發。運用生成式 AI ，快速搭建了基於 Tailwind CSS 的使用者介面，並使用 JavaScript 和 jQuery 處理所有的前端邏輯。
+        </p>
+            <li>
+            <h3>影片處理與歷史紀錄</h3>
+            
+             <p style="text-align: left;">1. 使用者輸入投手名字與點選要分析的影片後按下確定，觸發JavaScript(jQuery)的change事件</p>
+             <p style="text-align: left;">2. 使用 fetch 函式，以 POST 的方式將影片檔案與投手名稱非同步地傳送到API 地址(後端)</p>
+             <p style="text-align: left;">3. 經過後端處理分析過後的資料以json的格式，連同之前存入後端資料庫的歷史紀錄一起回傳</p>
+            <img src="baseball3.png" alt="專案截圖2" class="project-image image-large">
+            </li>
+            <li>
+            <h3>資料影像化</h3>
+            <p style="text-align: left;">回傳的資料會以下列的方式呈現:</p>
+            
+            <p style="text-align: left;">骨架影片與出手幀、踏步幀、最大肩外旋幀的三個影像畫面</p>
+            <p style="text-align: left;">模型預測總覽(最大球速、動作品質分數、好球機率預測):Tailwind CSS呈現</p>
+            
+            <p style="text-align: left;">生物力學深度診斷:與先前該投手球種的六大項目的比較圖，其中子彈圖與密度圖是以CSS的方式模擬呈現</p>
+            
+            <p style="text-align: left;">進階歷史數據分析模態窗:採用chart.js的方式呈現，讓使用者可以選擇不同的分析項目，即時呈現比較數據的圖表</p>
+            <img src="baseball4.png" alt="專案截圖2" class="project-image image-large">
+            <img src="baseball5.png" alt="專案截圖2" class="project-image image-large">
+            <img src="baseball6.png" alt="專案截圖2" class="project-image image-large">
+        </li>
+        </ul>
+        
+
+        <h2>使用的技術</h2>
+        
+        <p>
+            <b>前端：</b>HTML, JavaScript, Tailwind CSS, Chart.js, jQuery<br>
+            <b>後端串接：</b>Fetch API (與 FastAPI 進行數據交換)<br>
+            <b>核心概念：</b>API 整合, 資料視覺化, 非同步請求
+        </p>
+        
+        <a href="./personal.html" class="btn">返回首頁</a> 
+
+    </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Li Tsung Yen. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>  

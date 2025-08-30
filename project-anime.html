@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 標題可以為每個專案修改 -->
+    <title>專案詳情 - [請填寫專案名稱]</title>
+    
+    <!-- 所有頁面都使用同一個 CSS 檔案 -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+       .project-detail-section {
+            padding-top: 120px; /* 確保內容從導覽列下方開始 */
+            padding-bottom: 6rem;
+        }
+        .project-image {
+            width: 100%;
+            max-width: 200px;
+            margin: 2rem left;
+            display: block;
+            border-radius: 8px;
+        }
+        .image-large {
+        max-width: 800px; /* 讓這張圖的最大寬度變成 900px */
+        }
+    /* .project-detail-section p {
+    font-size: 1.2rem; /* rem 是相對單位，比 px 更好 */
+    /* } */
+    /* .project-detail-section li {
+    font-size: 1.2rem; */
+    /* } */ */
+    </style>
+</head>
+<body>
+     <nav class="navbar">
+        <div class="container">
+            <!-- 點擊 Logo 回到主頁最上方 -->
+            <a href="personal.html#home" class="nav-logo">LI TSUNG YEN</a>
+            <ul class="nav-menu">
+                <!-- 點擊連結會先回到 index.html，然後再跳轉到對應區塊 -->
+                <li><a href="personal.html#about">關於我</a></li>
+                <li><a href="personal.html#experience">學歷簡介</a></li>
+                <li><a href="personal.html#skills">專業技能</a></li>
+                <li><a href="personal.html#projects">專案實作</a></li>                
+                <li><a href="personal.html#contact">聯絡我</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="project-detail-section">
+        <div class="container">
+        <h1>專案名稱：動漫情緒熱點分析</h1>
+            <!-- <img src="gcp.jpg" alt="專案截圖" class="project-image"> -->
+            <p style="text-align: left;">
+                <a href="https://anime1si2sun-904509213302.us-central1.run.app/" target="_blank" rel="noopener noreferrer">
+                    <img src="gcp.jpg" alt="專案截圖" class="project-image">
+                </a>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;^可點選
+            </p>
+        <h2>專案簡介</h2>
+        <p style="text-align: left;">
+            這是一個從資料搜集、模型訓練到雲端部署的完整全端專案。使用者可輸入動漫名稱，系統會分析該動漫在影片彈幕中的情緒分佈，並以熱點圖的方式呈現每一集的高潮迭起之處。使用者點擊熱點即可直接跳轉至影片的對應時間點，快速重溫精彩片段。
+        </p>
+
+        <!-- 您可以將 '#' 替換成您的專案截圖   -->
+        <img src="anime1.png" alt="專案截圖1" class="project-image image-large">
+
+        <h2>功能特色</h2>
+        <ul>
+            <li>爬蟲自動化：使用 Selenium 自動從動畫瘋網站爬取特定動漫的彈幕資料。</li>
+            <li>情緒分析：利用 BERT 預訓練模型，對中文彈幕進行情緒分類。</li>
+            <li>數據視覺化：將分析結果以互動式圖表呈現，點擊可觸發事件。</li>
+            <li>雲端部署：將 FastAPI 後端服務打包成 Docker 容器，並部署在 Google Cloud Platform (GCP) 上，實現高效能的服務。</li>
+        </ul>
+        
+        <h2>詳細說明</h2>
+        <ul>
+            <li>
+            <h3>資料準備</h3>
+            <p>1. 使用 Selenium 自動從動畫瘋網站爬取動漫的作品名、集數、彈幕、時間軸、影片URL，分為彈幕與URL兩個資料</p>
+            <p>2. 利用個人半監督訓練過的BERT類模型，對彈幕資料進行兩次情緒分類的標籤
+                <br>(第一層分五個分類，第二層利用3個模型分27類)</p>
+            <p>3. 將標記後的彈幕與URL資料，上傳於GCP的VM所架設的Postgresql</p>
+            <img src="anime2.png" alt="專案截圖2" class="project-image image-large">
+            </li>
+            <li> <h3>前後端執行</h3>
+            <p>4. 使用者輸入動漫的作品名(有做搜尋預測，方便搜尋)，並選擇想查詢情緒分類(預設、虐點、感動、爆笑、戰鬥等等)</p>
+            <p>5. 根據使用者輸入的作品名與情緒分類，調取VM的postgresql的彈幕資料</p>
+            <p>6. 根據彈幕與時間軸資料進行篩選與運算後，選出各情緒分類的TOP的片段，回傳片段資料與相對應的URL資料</p>
+            <p>(6.1). 同時間，將回傳的資料作為快取資料傳送到redis，讓下一輪使用者可更快速搜尋到資料</p>
+            <p>7. 回傳的資料，到前端會呈現作品名，集數與可選的時間片段，如有YT連結可進入該時段的影片，否則回到該集數的巴哈連結</p></li>
+            <img src="anime3.png" alt="專案截圖2" class="project-image image-large">
+            <img src="anime4.png" alt="專案截圖2" class="project-image image-large">
+            <img src="anime5.png" alt="專案截圖2" class="project-image image-large">
+            <li>
+            <h3>雲端部署</h3>
+            <p>將 FastAPI 後端服務打包成 Docker 容器，並部署在 Google Cloud Platform (GCP) 上，實現高效能的服務。</p>
+        </li>
+        </ul>
+        
+
+        <h2>使用的技術</h2>
+        <p>
+            <b>前端：</b>HTML, CSS, JavaScript<br>
+            <b>後端：</b>FastAPI, PyTorch<br>
+            <b>資料庫：</b>PostgreSQL<br>
+            <b>模型：</b>BERT (bert-base-chinese)<br>
+            <b>部署：</b>Docker, GCP (Virtual Machine, Cloud Run)
+        </p>
+        
+        <a href="./personal.html" class="btn">返回首頁</a> 
+
+    </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Li Tsung Yen. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>  

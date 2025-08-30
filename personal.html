@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李宗彥 (Li Tsung Yen) - 個人作品集</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#home" class="nav-logo">LI TSUNG YEN</a>
+            <!-- 【修改】導覽列順序同步調整 -->
+            <ul class="nav-menu">
+                <li><a href="#about">關於我</a></li>
+                <li><a href="#experience">學歷簡介</a></li>
+                <li><a href="#skills">專業技能</a></li>
+                <li><a href="#projects">專案實作</a></li>
+                <li><a href="#contact">聯絡我</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>李宗彥<br>LI TSUNG YEN</h1>
+            <p class="subtitle">AI 智慧應用開發者 | Python 開發者 | 精通三國語言 (中韓日)</p>
+            <a href="https://drive.google.com/drive/u/2/folders/14eZd6_lJ9lDlc1rWVALValy1kd7GbM8X" target="_blank" rel="noopener noreferrer" class="btn">下載履歷</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 【順序調整】區塊順序已恢復 -->
+        <section id="about" class="content-section">
+            <div class="container">
+                <h2>關於我</h2>
+                <p>
+                    您好，我是李宗彥。擁有五年韓國留學經驗，主修機械工程並副修日文。具備韓文 TOPIK 6級與日文 JLPT N2 的語言能力。
+                </p>
+                <p>
+                    2025年進入緯育 TibaMe 的 AI班職訓。從 Python 基礎、資料庫建置、深度學習、到雲端部署，系統性地建立了穩固的技術基礎，並在專案中實作了相關技術且能夠成功部署。期待能有機會加⼊貴公司，不僅能夠貢獻所學的技能，更重要的是在團隊中持續學習、成⻑，與公司⼀同⾯對挑戰。
+                </p>
+            </div>
+        </section>
+
+        <!-- 【新增】學歷簡介區塊 -->
+        <section id="experience" class="content-section bg-white">
+            <div class="container">
+                <h2>學歷簡介</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">2025.04 - 2025.07</div>
+                            <h3>緯育 TibaMe - AI 智慧應用開發實戰養成班</h3>
+                            <p>系統性學習 AI 開發所需的全方位技能，完成多項實作專案。</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                         <div class="timeline-content">
+                            <div class="timeline-date">2020.03 - 2024.02</div>
+                            <h3>韓國鮮文大學</h3>
+                            <p>機械工程學系 學士 (副修：日語學系)</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="content-section">
+            <div class="container">
+                <h2>專業技能</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>語言能力</h3>
+                        <ul>
+                            <li>中文 (母語)</li>
+                            <li>韓文 (TOPIK 6級 - 精通)</li>
+                            <li>日文 (JLPT N2 - 次高級)</li>
+                            <li>英文 (基礎口說)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>後端 & 資料庫</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>Flask / FastAPI</li>
+                            <li>SQL (MySQL, PostgreSQL)</li>
+                            <li>NoSQL (MongoDB)</li>
+                            <li>Linux 系統操作</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>AI / ML</h3>
+                        <ul>
+                            <li>模型訓練 (TensorFlow, PyTorch)</li>
+                            <li>影像處理與分析 (OpenCV)</li>
+                            <li>語言分類模型 (BERT)</li>
+                            <li>生成式 AI (Gemini, ChatGPT API)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>開發 & 部署</h3>
+                        <ul>
+                            <li>HTML / CSS / JavaScript</li>
+                            <li>Docker</li>
+                            <li>雲端應用 (AWS, GCP VM/Cloud Run firestore)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section bg-white">
+            <div class="container">
+                <h2>專案實作</h2>
+                <div class="projects-grid-irregular">
+                    <a href="project-anime.html" class="project-item project-item-anime">
+                        <img src="anime-img.png" alt="動漫情緒熱點分析">
+                        <div class="project-overlay">
+                            <h3>個人專題：動漫情緒熱點分析</h3>
+                        </div>
+                    </a>
+                    <a href="project-baseball.html" class="project-item project-item-baseball">
+                        <img src="baseball-img.png" alt="棒球投手分析儀表板">
+                        <div class="project-overlay">
+                            <h3>團體專題：棒球投手分析儀表板</h3>
+                        </div>
+                    </a>
+                    <a href="project-opencv.html" class="project-item">
+                        <img src="opencv-img.jpg" alt="OpenCV 影像處理實作">
+                        <div class="project-overlay">
+                            <h3>OpenCV 影像處理</h3>
+                        </div>
+                    </a>
+                    <a href="project-linebot.html" class="project-item">
+                        <img src="linebot-img.png" alt="Linebot 與 Gemini 應用">
+                        <div class="project-overlay">
+                            <h3>Linebot 與 Gemini 應用</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+             <div class="container">
+                <h2>聯絡我</h2>
+                <p>感謝您的閱覽，期待能有機會為您的團隊貢獻我的熱情與技能。歡迎隨時透過以下方式與我聯繫！</p>
+                <div class="contact-info">
+                    <p><strong>Email:</strong> <a href="mailto:si2sun.lity@gmail.com">si2sun.lity@gmail.com</a></p>
+                    <p><strong>手機:</strong> 0916-319-022</p>
+                </div>
+             </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Li Tsung Yen. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            const navLinks = document.querySelectorAll('.nav-menu a, .nav-logo');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            const sections = document.querySelectorAll('.content-section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

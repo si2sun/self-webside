@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 標題可以為每個專案修改 -->
+    <title>專案詳情 - [請填寫專案名稱]</title>
+
+    <!-- 所有頁面都使用同一個 CSS 檔案 -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        .project-detail-section {
+            padding-top: 120px;
+            /* 確保內容從導覽列下方開始 */
+            padding-bottom: 6rem;
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 200px;
+            margin: 2rem left;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .image-large {
+            max-width: 800px;
+            /* 讓這張圖的最大寬度變成 900px */
+        }
+
+        /* .project-detail-section p {
+    font-size: 1.2rem; /* rem 是相對單位，比 px 更好 */
+        /* } */
+        /* .project-detail-section li {
+    font-size: 1.2rem; */
+        /* } */
+        */
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <!-- 點擊 Logo 回到主頁最上方 -->
+            <a href="personal.html#home" class="nav-logo">LI TSUNG YEN</a>
+            <ul class="nav-menu">
+                <!-- 點擊連結會先回到 index.html，然後再跳轉到對應區塊 -->
+                <li><a href="personal.html#about">關於我</a></li>
+                <li><a href="personal.html#experience">學歷簡介</a></li>
+                <li><a href="personal.html#skills">專業技能</a></li>
+                <li><a href="personal.html#projects">專案實作</a></li>
+                <li><a href="personal.html#contact">聯絡我</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="project-detail-section">
+        <div class="container">
+            <h1>專案名稱：opencv影片影像處理實作</h1>
+            
+            <p style="text-align: left;">
+                <a href="https://www.youtube.com/watch?v=VOC_ZoNoyVY" target="_blank" rel="noopener noreferrer">
+                    <img src="opencv.jpg" alt="專案截圖" class="project-image"></a>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;^可點選
+            </p>
+            <h2>專案簡介</h2>
+            <p style="text-align: left;">
+                使用 OpenCV 套用多種影片特效與影像處理技術，包含影像疊加、直方圖等化、色彩通道分離、濾波、邊緣偵測 (Sobel, Canny) 及特徵偵測 (FAST, ORB, SIFT) 等。
+            </p>
+
+            <h2>功能特色</h2>
+        <ul>
+                <li><b>時間軸驅動特效：</b>根據影片播放秒數，自動觸發並應用不同的影像處理效果。</li>
+                <li><b>影像增強與濾波：</b>整合多種影像增強技術，如影像疊加、直方圖等化、色彩通道分離與模糊濾波。</li>
+                <li><b>經典邊緣偵測：</b>實作並比較 Canny、Sobel 及 Scharr 等多種主流邊-緣偵測演算法。</li>
+                <li><b>關鍵特徵點提取：</b>應用 SIFT、ORB、FAST 等演算法，從影像中偵測並標示出關鍵特徵點。</li>
+                <li><b>即時預覽與輸出：</b>逐幀處理影片，即時顯示處理結果，並將最終成果儲存為新的影片檔案。</li>               
+           </ul>
+
+            <h2>詳細說明</h2>
+            <ul>
+                <li>
+                    <h3>以時間順序所使用的功能作以下說明:</h3>
+                    0.7s ~ 1s 多重影像相加 (cv2.add) 將同一張影像多次相加，畫面會變亮、強化亮度感。
+                    <p style="text-align: left;">10.5s ~ 11s 影像兩次相加 (cv2.add) 和上面類似，但疊加次數少，亮度提升幅度較小。
+                        <br>11s ~ 11.5s 色彩直方圖等化 (cv2.equalizeHist) 對 B、G、R 三通道做直方圖等化，增強對比度與細節。
+                        <br>11.5s ~ 13.5s 分離色彩通道展示 (紅、綠、藍、灰階) 保留單一色彩通道，展示各色通道影像，並以 2x2 格排列呈現。
+                        <br>13.5s ~ 14.5s 色彩轉換 (cv2.COLOR_BGR2RGB) BGR → RGB，調換色彩通道順序。
+                        <br>14.5s ~ 16.5s 模糊處理 (cv2.blur) 均值濾波，將影像模糊化，降低雜訊。
+                        <br>17.5s ~ 19.5s 四種 Threshold 二值化處理 cv2.THRESH_BINARY / BINARY_INV / TRUNC / TOZERO，將影像依門檻值分割。
+                        <br>19.5s ~ 21s 自適應 Threshold (cv2.adaptiveThreshold) 根據局部區域亮度，自動計算門檻值，適應不同亮度情況。
+                        <br>23s ~ 23.8s 四種 Threshold 應用於灰階影像 和 12.3~13.3 類似，但處理對象是灰階影像。
+                        <br>24.8s ~ 27.5s Sobel 邊緣偵測器 (cv2.Sobel) 偵測水平方向、垂直方向邊緣，再疊合成完整邊緣圖。
+                        <br>27.5s ~ 29s Scharr 邊緣偵測器 (cv2.Scharr) Sobel 加強版，偵測邊緣細節效果更好。
+                        <br>29s ~ 30.7s Canny 邊緣偵測 (cv2.Canny) 著名的邊緣偵測演算法，抓取影像輪廓邊界。
+                        <br>30.7s ~ 34s Dlib 臉部偵測器 使用 Dlib 偵測臉部，並標示方框及分數。
+                        <br>34.5s ~ 36.5s FAST 特徵點偵測 (cv2.FastFeatureDetector) 快速偵測影像角點特徵，適合即時處理。
+                        <br>36.5s ~ 40s ORB 特徵點偵測 (cv2.ORB_create) ORB 特徵偵測與描述，適合特徵匹配應用。
+                        <br>40s ~ 44.5s SIFT 特徵點偵測 (cv2.SIFT_create) SIFT 特徵偵測與描述，提取影像重要特徵點。
+                    </p>
+                <img src="opencv1.jpg" alt="專案截圖2" class="project-image image-large">   
+                <img src="opencv2.jpg" alt="專案截圖2" class="project-image image-large">
+                <img src="opencv3.jpg" alt="專案截圖2" class="project-image image-large">
+                <img src="opencv4.jpg" alt="專案截圖2" class="project-image image-large">
+                <img src="opencv5.jpg" alt="專案截圖2" class="project-image image-large">
+                <img src="opencv6.jpg" alt="專案截圖2" class="project-image image-large">
+                </li>
+            </ul>
+
+
+            <h2>使用的技術</h2>
+            <p>
+               <b>主要程式語言：</b>Python<br>
+                <b>核心函式庫：</b>OpenCV (cv2)<br>
+                <b>輔助函式庫：</b>NumPy (用於影像陣列堆疊), Dlib (用於臉部偵測)<br>
+                <b>開發環境：</b>Jupyter Notebook<br>
+                <b>關鍵演算法與實作：</b> 
+            </p>
+
+            <a href="./personal.html" class="btn">返回首頁</a>
+
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Li Tsung Yen. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
