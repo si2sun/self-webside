@@ -204,16 +204,6 @@
             sections.forEach(section => {
                 observer.observe(section);
             });
-            const hero = document.querySelector('.hero');
-            // 只在螢幕寬度大於 768px (非手機) 時啟用視差效果
-            if (window.innerWidth > 768) {
-                window.addEventListener('scroll', function() {
-                    let scrollPosition = window.pageYOffset;
-                    // 速度因子，0.5 代表背景滾動速度是頁面的一半
-                    hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
-                });
-            }
-
         });
     </script>
 </body>
