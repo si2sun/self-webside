@@ -113,17 +113,11 @@ a:hover { color: #0056b3; }
     min-height: 110vh;
     display: flex;
     align-items: center;
-    
-    /* 【修改】從 justify-content: flex-end 改為 flex-start，讓內容容器靠左 */
     justify-content: flex-start;
-    
-    /* 【修改】從 text-align: right 改為 left，讓文字靠左對齊 */
     text-align: left;
-    
     color: #fff;
     background-image: url('69009.jpg');
     background-size: cover;
-    /* 【修改】將背景照片稍微向右移動，為左邊的文字留出更多空間 */
     background-position: 80% 10%; 
     background-attachment: fixed;
 }
@@ -137,10 +131,7 @@ a:hover { color: #0056b3; }
 .hero-content {
     position: relative;
     z-index: 2;
-    
-    /* 【修改】從 padding-right 改為 padding-left */
     padding-left: 5%;
-    
     max-width: 600px;
 }
 .hero h1 { color: #fff; }
@@ -211,22 +202,50 @@ footer { text-align: center; padding: 2.5rem 0; background: #e9ecef; border-top:
 
 /* --- RWD 響應式設計 --- */
 @media (max-width: 768px) {
+    /* 【手機版優化】縮小通用標題和內文的字體 */
+    h2 { font-size: 2rem; }
+    p, li { font-size: 1rem; }
+
     .nav-menu { display: none; }
+
     .hero { 
-        justify-content: center; /* 手機上置中 */
+        min-height: 100vh;
+        justify-content: center;
         text-align: center;
-        background-position: center; /* 手機上背景也置中 */
+        background-position: center;
+        background-attachment: scroll;
     }
+
     .hero-content {
-        padding-left: 1rem; /* 手機上左右給一點padding */
+        padding-left: 1rem;
         padding-right: 1rem;
     }
+    
+    /* 【手機版優化】針對 Hero 區塊進行更大幅度的字體和間距調整 */
+    .hero h1 { 
+        font-size: 2.4rem; /* 大幅縮小 */
+        line-height: 1.3;  /* 收緊行高 */
+        margin-bottom: 1rem; /* 減少下方間距 */
+    }
+    
+    .hero .subtitle { 
+        font-size: 0.9rem; /* 縮小副標題 */
+        line-height: 1.6;
+        margin-bottom: 1.5rem; /* 減少下方間距 */
+    }
+    
+    /* 【手機版優化】讓按鈕也變小一點 */
+    .btn {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+    }
+    
     .timeline::after { left: 20px; }
     .timeline-item { width: 100%; padding-left: 50px; padding-right: 15px; }
     .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { left: 0; text-align: left; }
     .timeline-dot { left: 11.5px; }
+    
     .projects-grid-irregular { grid-template-columns: 1fr; }
     .project-item-anime, .project-item-baseball { grid-column: span 1; }
 }
 
-}
