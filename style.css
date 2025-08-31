@@ -47,24 +47,22 @@ li { font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary-color); }
 a { color: var(--primary-color); text-decoration: none; transition: color 0.3s ease; }
 a:hover { color: #0056b3; }
 
-/* --- 【已補回】通用按鈕樣式 --- */
 .btn {
     display: inline-block;
     background: var(--primary-color);
     color: #fff;
     padding: 12px 28px;
-    border-radius: 50px; /* 圓角按鈕 */
+    border-radius: 50px;
     font-weight: bold;
     text-decoration: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 2px solid var(--primary-color);
-    margin-top: 2rem; /* 給按鈕一點上方空間 */
+    margin-top: 2rem;
 }
-
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-    color: #fff; /* 確保 hover 時文字顏色不變 */
+    color: #fff;
 }
 
 /* --- 導覽列 --- */
@@ -176,7 +174,7 @@ a:hover { color: #0056b3; }
 .project-detail-section {
     padding-top: 120px;
     padding-bottom: 6rem;
-    background-color: var(--surface-color); /* 確保專案頁有白色背景 */
+    background-color: var(--surface-color);
 }
 .project-detail-section h2 { color: var(--deep-blue-color); }
 .project-detail-section p, .project-detail-section li { color: var(--text-color); }
@@ -214,11 +212,21 @@ footer { text-align: center; padding: 2.5rem 0; background: #e9ecef; border-top:
 /* --- RWD 響應式設計 --- */
 @media (max-width: 768px) {
     .nav-menu { display: none; }
-    .hero { background-attachment: scroll; }
+    .hero { 
+        justify-content: center; /* 手機上置中 */
+        text-align: center;
+        background-position: center; /* 手機上背景也置中 */
+    }
+    .hero-content {
+        padding-left: 1rem; /* 手機上左右給一點padding */
+        padding-right: 1rem;
+    }
     .timeline::after { left: 20px; }
     .timeline-item { width: 100%; padding-left: 50px; padding-right: 15px; }
     .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { left: 0; text-align: left; }
     .timeline-dot { left: 11.5px; }
     .projects-grid-irregular { grid-template-columns: 1fr; }
     .project-item-anime, .project-item-baseball { grid-column: span 1; }
+}
+
 }
