@@ -215,7 +215,7 @@ footer { text-align: center; padding: 2.5rem 0; background: #e9ecef; border-top:
     .hero { 
         justify-content: center; /* 手機上置中 */
         text-align: center;
-        background-position: center; /* 手機上背景也置中 */
+        background-position: right; /* 手機上背景也置中 */
     }
     .hero-content {
         padding-left: 1rem; /* 手機上左右給一點padding */
@@ -228,4 +228,5 @@ footer { text-align: center; padding: 2.5rem 0; background: #e9ecef; border-top:
     .projects-grid-irregular { grid-template-columns: 1fr; }
     .project-item-anime, .project-item-baseball { grid-column: span 1; }
 }
+
 
